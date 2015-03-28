@@ -3,6 +3,7 @@ using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using JimBobBennettApp.Droid.Controls;
+using JimBobBennettApp.Portable;
 
 namespace JimBobBennettApp.Droid.Fragments
 {
@@ -22,6 +23,16 @@ namespace JimBobBennettApp.Droid.Fragments
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.about_me, null);
+
+            var title = view.FindViewById<TextView>(Resource.Id.about_me_title);
+            var subtitle1 = view.FindViewById<TextView>(Resource.Id.about_me_subtitle1);
+            var subtitle2 = view.FindViewById<TextView>(Resource.Id.about_me_subtitle2);
+            var subtitle3 = view.FindViewById<TextView>(Resource.Id.about_me_subtitle3);
+
+            title.Text = AboutMe.Title;
+            subtitle1.Text = AboutMe.Subtitle1;
+            subtitle2.Text = AboutMe.Subtitle2;
+            subtitle3.Text = AboutMe.Subtitle3;
 
             _frameLayout = view.FindViewById<FrameLayout>(Resource.Id.about_me_main_image_frame);
             _imageView = view.FindViewById<ImageView>(Resource.Id.about_me_main_image);

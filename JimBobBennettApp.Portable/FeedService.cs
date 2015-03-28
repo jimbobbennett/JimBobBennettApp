@@ -27,14 +27,14 @@ namespace JimBobBennettApp.Portable
 
                     item.Link = element.Descendants("link").Single().Value;
                     item.Description = element.Descendants("description").Single().Value;
-                    item.Category = element.Descendants("category").Select(c => c.Value).ToList();
+                    item.Categories = element.Descendants("category").Select(c => c.Value).ToList();
                     item.PubDate = DateTime.Parse(element.Descendants("pubDate").Single().Value);
                     item.Title = element.Descendants("title").Single().Value;
 
                     feedItemsList.Add(item);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 // do nothing
             }

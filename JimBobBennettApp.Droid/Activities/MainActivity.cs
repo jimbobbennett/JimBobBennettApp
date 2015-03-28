@@ -13,7 +13,7 @@ using Fragment = Android.Support.V4.App.Fragment;
 
 namespace JimBobBennettApp.Droid.Activities
 {
-    [Activity(Label = "Jim Bob Bennett", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, 
+    [Activity(Label = "Jim Bob Bennett", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, ScreenOrientation = ScreenOrientation.Portrait,
         Icon = "@drawable/ic_launcher")]
     public class MainActivity : BaseActivity
     {
@@ -80,6 +80,7 @@ namespace JimBobBennettApp.Droid.Activities
         }
 
         int _oldPosition = -1;
+
         private void ListItemClicked(int position)
         {
             //this way we don't load twice, but you might want to modify this a bit.
@@ -113,7 +114,7 @@ namespace JimBobBennettApp.Droid.Activities
 
             var drawerOpen = _drawerLayout.IsDrawerOpen(GravityCompat.Start);
             //when open don't show anything
-            for (int i = 0; i < menu.Size(); i++)
+            for (var i = 0; i < menu.Size(); i++)
                 menu.GetItem(i).SetVisible(!drawerOpen);
 
 
@@ -136,14 +137,8 @@ namespace JimBobBennettApp.Droid.Activities
         // true, then it has handled the app icon touch event
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (_drawerToggle.OnOptionsItemSelected(item))
-                return true;
-
-            return base.OnOptionsItemSelected(item);
+            return _drawerToggle.OnOptionsItemSelected(item) || base.OnOptionsItemSelected(item);
         }
-
-
-
     }
 }
 

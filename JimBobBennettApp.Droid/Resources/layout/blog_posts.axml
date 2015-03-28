@@ -2,12 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <TextView
-        android:text="@string/fragment2"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/textView1"
-        android:gravity="center" />
+        android:id="@+id/blog_posts_swipe_refresh">
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/blog_posts_list" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <Button
+            android:text="Visit My Blog To See More!"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/visit_my_blog_button" />
+    </FrameLayout>
 </LinearLayout>

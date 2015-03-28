@@ -8,7 +8,7 @@ namespace JimBobBennettApp.Portable
         public string Title { get; set; }
         public string Link { get; set; }
         public DateTime PubDate { get; set; }
-        public IEnumerable<string> Category { get; set; }
+        public IEnumerable<string> Categories { get; set; }
         public string Description { get; set; }
     }
 }

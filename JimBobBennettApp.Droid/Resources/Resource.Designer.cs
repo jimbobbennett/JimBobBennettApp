@@ -1190,8 +1190,20 @@ namespace JimBobBennettApp.Droid
 			// aapt resource value: 0x7f080041
 			public const int about_me_scroll_view = 2131230785;
 			
+			// aapt resource value: 0x7f080044
+			public const int about_me_subtitle1 = 2131230788;
+			
+			// aapt resource value: 0x7f080045
+			public const int about_me_subtitle2 = 2131230789;
+			
+			// aapt resource value: 0x7f080046
+			public const int about_me_subtitle3 = 2131230790;
+			
 			// aapt resource value: 0x7f080042
 			public const int about_me_text_layout = 2131230786;
+			
+			// aapt resource value: 0x7f080043
+			public const int about_me_title = 2131230787;
 			
 			// aapt resource value: 0x7f080031
 			public const int action_bar = 2131230769;
@@ -1241,14 +1253,29 @@ namespace JimBobBennettApp.Droid
 			// aapt resource value: 0x7f080013
 			public const int beginning = 2131230739;
 			
+			// aapt resource value: 0x7f080048
+			public const int blog_post_row_tag_icon = 2131230792;
+			
+			// aapt resource value: 0x7f080049
+			public const int blog_post_row_tags = 2131230793;
+			
+			// aapt resource value: 0x7f080047
+			public const int blog_post_row_title = 2131230791;
+			
+			// aapt resource value: 0x7f08004b
+			public const int blog_posts_list = 2131230795;
+			
+			// aapt resource value: 0x7f08004a
+			public const int blog_posts_swipe_refresh = 2131230794;
+			
 			// aapt resource value: 0x7f080029
 			public const int checkbox = 2131230761;
 			
 			// aapt resource value: 0x7f080017
 			public const int collapseActionView = 2131230743;
 			
-			// aapt resource value: 0x7f080047
-			public const int content_frame = 2131230791;
+			// aapt resource value: 0x7f080050
+			public const int content_frame = 2131230800;
 			
 			// aapt resource value: 0x7f08002f
 			public const int decor_content_parent = 2131230767;
@@ -1262,8 +1289,8 @@ namespace JimBobBennettApp.Droid
 			// aapt resource value: 0x7f08000c
 			public const int disableHome = 2131230732;
 			
-			// aapt resource value: 0x7f080045
-			public const int drawer_layout = 2131230789;
+			// aapt resource value: 0x7f08004e
+			public const int drawer_layout = 2131230798;
 			
 			// aapt resource value: 0x7f08001c
 			public const int dropdown = 2131230748;
@@ -1295,8 +1322,8 @@ namespace JimBobBennettApp.Droid
 			// aapt resource value: 0x7f080023
 			public const int image = 2131230755;
 			
-			// aapt resource value: 0x7f080048
-			public const int left_drawer = 2131230792;
+			// aapt resource value: 0x7f080051
+			public const int left_drawer = 2131230801;
 			
 			// aapt resource value: 0x7f080009
 			public const int listMode = 2131230729;
@@ -1376,23 +1403,23 @@ namespace JimBobBennettApp.Droid
 			// aapt resource value: 0x7f08000b
 			public const int tabMode = 2131230731;
 			
-			// aapt resource value: 0x7f080044
-			public const int text = 2131230788;
-			
-			// aapt resource value: 0x7f080043
-			public const int textView1 = 2131230787;
+			// aapt resource value: 0x7f08004d
+			public const int text = 2131230797;
 			
 			// aapt resource value: 0x7f080027
 			public const int title = 2131230759;
 			
-			// aapt resource value: 0x7f080046
-			public const int toolbar = 2131230790;
+			// aapt resource value: 0x7f08004f
+			public const int toolbar = 2131230799;
 			
 			// aapt resource value: 0x7f080008
 			public const int up = 2131230728;
 			
 			// aapt resource value: 0x7f080012
 			public const int useLogo = 2131230738;
+			
+			// aapt resource value: 0x7f08004c
+			public const int visit_my_blog_button = 2131230796;
 			
 			// aapt resource value: 0x7f08001a
 			public const int withText = 2131230746;
@@ -1505,19 +1532,22 @@ namespace JimBobBennettApp.Droid
 			public const int about_me = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int blog_posts = 2130903064;
+			public const int blog_post_row = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int item_menu = 2130903065;
+			public const int blog_posts = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int main = 2130903066;
+			public const int item_menu = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int support_simple_spinner_dropdown_item = 2130903067;
+			public const int main = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int toolbar = 2130903068;
+			public const int support_simple_spinner_dropdown_item = 2130903068;
+			
+			// aapt resource value: 0x7f03001d
+			public const int toolbar = 2130903069;
 			
 			static Layout()
 			{
@@ -1590,7 +1620,7 @@ namespace JimBobBennettApp.Droid
 			public const int drawer_open = 2131361809;
 			
 			// aapt resource value: 0x7f0a0014
-			public const int fragment2 = 2131361812;
+			public const int icon_tags = 2131361812;
 			
 			// aapt resource value: 0x7f0a0013
 			public const int menu_refresh = 2131361811;
