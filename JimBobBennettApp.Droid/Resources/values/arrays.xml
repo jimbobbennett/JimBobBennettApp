@@ -5,9 +5,11 @@
   <string-array name="sections">
     <item>About Me</item>
     <item>Latest Blog Posts</item>
+    <item>Where I\'ve Lived</item>
   </string-array>
   <string-array name="sections_icons">
-    <item>@drawable/ic_home_1</item>
-    <item>@drawable/ic_home_2</item>
+    <item>@string/icon_home</item>
+    <item>@string/icon_blog</item>
+    <item>@string/icon_map_marker</item>
   </string-array>
 </resources>

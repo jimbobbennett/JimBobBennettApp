@@ -1,4 +1,7 @@
-﻿namespace JimBobBennettApp.Portable
+﻿using System;
+using System.Collections.Generic;
+
+namespace JimBobBennettApp.Portable
 {
     public static class AboutMe
     {
@@ -53,6 +56,17 @@
         public static string GooglePlus
         {
             get { return "http://plus.google.com/+JimBennettio"; }
+        }
+
+        public static IEnumerable<LocationInformation> LocationsLived
+        {
+            get
+            {
+                yield return new LocationInformation("England", 52.8849565, -1.9770329, "Cold.  Rains a lot");
+                yield return new LocationInformation("Hong Kong", 22.3700556, 114.1223784, "Awesome Noodles");
+                yield return new LocationInformation("Bermuda", 32.3191775, -64.7670827, "Expensive fruit");
+                yield return new LocationInformation("Bangkok", 13.7246005, 100.6331108, "Amazing food, especially the fried chicken");
+            }
         }
     }
 }

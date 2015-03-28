@@ -1,33 +1,29 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
 using Android.Content;
-using Android.OS;
+using Android.Graphics;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.Graphics;
+using Object = Java.Lang.Object;
+using String = Java.Lang.String;
 
 namespace JimBobBennettApp.Droid.Adapters
 {
-
-    class MyViewHolder : Java.Lang.Object
-    {
-        public TextView Title { get; set; }
-    }
-
     class DrawerMenuAdapter : BaseAdapter
     {
-        Tuple<int, string>[] sections;
+        class DrawerMenuViewHolder : Object
+        {
+            public TextView Title { get; set; }
+            public TextView TitleIcon { get; set; }
+        }
 
-        Context context;
+        readonly Tuple<string, string>[] _sections;
+
+        readonly Context _context;
 
         public DrawerMenuAdapter(Context context)
         {
-            this.context = context;
+            _context = context;
 
             var names = context.Resources.GetStringArray(Resource.Array.sections);
             var icons = context.Resources.GetStringArray(Resource.Array.sections_icons);
@@ -35,25 +31,22 @@ namespace JimBobBennettApp.Droid.Adapters
             if (names.Length != icons.Length)
                 throw new ArgumentException("Names and Icons must match in length. Check your arrays.xml");
 
-            sections = new Tuple<int, string>[names.Length];
+            _sections = new Tuple<string, string>[names.Length];
 
-            var imgs = context.Resources.ObtainTypedArray(Resource.Array.sections_icons);
-            for (int i = 0; i < names.Length; i++)
+            for (var i = 0; i < names.Length; i++)
             {
-
-                sections[i] = Tuple.Create(imgs.GetResourceId(i, -1), names[i]);
+                _sections[i] = Tuple.Create(icons[i], names[i]);
             }
-            imgs.Recycle();
         }
 
         public string GetTitle(int position)
         {
-            return sections[position].Item2;
+            return _sections[position].Item2;
         }
 
-        public override Java.Lang.Object GetItem(int position)
+        public override Object GetItem(int position)
         {
-            return new Java.Lang.String(sections[position].Item2);
+            return new String(_sections[position].Item2);
         }
 
         public override long GetItemId(int position)
@@ -64,19 +57,20 @@ namespace JimBobBennettApp.Droid.Adapters
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var view = convertView;
-            MyViewHolder holder = null;
+            DrawerMenuViewHolder holder = null;
 
             if (view != null)
-                holder = view.Tag as MyViewHolder;
+                holder = view.Tag as DrawerMenuViewHolder;
 
             if (holder == null)
             {
-                holder = new MyViewHolder();
-                var inflater = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
+                holder = new DrawerMenuViewHolder();
+                var inflater = _context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
                 view = inflater.Inflate(Resource.Layout.item_menu, parent, false);
-                holder.Title = view.FindViewById<TextView>(Resource.Id.text);
+                holder.Title = view.FindViewById<TextView>(Resource.Id.menu_title);
+                holder.TitleIcon = view.FindViewById<TextView>(Resource.Id.menu_icon);
+                holder.TitleIcon.SetTypeface(Fonts.FontAwesome, TypefaceStyle.Normal);
                 view.Tag = holder;
-
             }
 
             if (position == 0 && convertView == null)
@@ -85,8 +79,8 @@ namespace JimBobBennettApp.Droid.Adapters
                 holder.Title.SetTypeface(holder.Title.Typeface, TypefaceStyle.Normal);
 
 
-            holder.Title.Text = sections[position].Item2;
-            holder.Title.SetCompoundDrawablesWithIntrinsicBounds(sections[position].Item1, 0, 0, 0);
+            holder.Title.Text = _sections[position].Item2;
+            holder.TitleIcon.Text = _sections[position].Item1;
 
             return view;
         }
@@ -95,7 +89,7 @@ namespace JimBobBennettApp.Droid.Adapters
         {
             get
             {
-                return sections.Length;
+                return _sections.Length;
             }
         }
 

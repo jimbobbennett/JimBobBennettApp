@@ -43,6 +43,7 @@
     <Compile Include="BlogPosts.cs" />
     <Compile Include="FeedItem.cs" />
     <Compile Include="FeedService.cs" />
+    <Compile Include="LocationInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

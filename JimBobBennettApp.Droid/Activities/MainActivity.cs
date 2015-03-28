@@ -98,6 +98,9 @@ namespace JimBobBennettApp.Droid.Activities
                 case 1:
                     fragment = BlogPostsFragment.NewInstance();
                     break;
+                case 2:
+                    fragment = LocationsLivedFragment.NewInstance();
+                    break;
             }
 
             SupportFragmentManager.BeginTransaction()

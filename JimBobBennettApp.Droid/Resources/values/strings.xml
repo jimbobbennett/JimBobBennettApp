@@ -4,9 +4,13 @@
   <string name="drawer_open">Open</string>
   <string name="drawer_close">Close</string>
   <string name="menu_refresh">Refresh</string>
+  
   <string name="icon_tags">&#xf02c;</string>
   <string name="icon_twitter">&#xf099;</string>
   <string name="icon_linkedin">&#xf0e1;</string>
   <string name="icon_github">&#xf09b;</string>
   <string name="icon_google_plus">&#xf0d5;</string>
+  <string name="icon_home">&#xf015;</string>
+  <string name="icon_blog">&#xf040;</string>
+  <string name="icon_map_marker">&#xf041;</string>
 </resources>
