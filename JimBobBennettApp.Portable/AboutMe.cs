@@ -34,5 +34,25 @@
                        "has topped the iTunes Software How-To category.";
             }
         }
+
+        public static string Twitter
+        {
+            get { return "http://twitter.com/jimbobbennett"; }
+        }
+
+        public static string LinkedIn
+        {
+            get { return "http://www.linkedin.com/pub/jim-bennett/20/448/367"; }
+        }
+
+        public static string GitHub
+        {
+            get { return "http://github.com/jimbobbennett"; }
+        }
+
+        public static string GooglePlus
+        {
+            get { return "http://plus.google.com/+JimBennettio"; }
+        }
     }
 }

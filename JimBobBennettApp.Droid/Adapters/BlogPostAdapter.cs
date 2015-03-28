@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Graphics;
 using Android.Views;
-using Android.Webkit;
 using Android.Widget;
+using Java.Lang;
 using JimBobBennettApp.Portable;
 
 namespace JimBobBennettApp.Droid.Adapters
@@ -14,17 +13,15 @@ namespace JimBobBennettApp.Droid.Adapters
         private readonly Activity _context;
         private readonly List<FeedItem> _items;
 
-        class ViewHolder : Java.Lang.Object
+        class ViewHolder : Object
         {
             public ViewHolder(View view)
             {
                 Title = view.FindViewById<TextView>(Resource.Id.blog_post_row_title);
                 Tags = view.FindViewById<TextView>(Resource.Id.blog_post_row_tags);
 
-                var font = Typeface.CreateFromAsset(Application.Context.Assets, "fonts/fontawesome.ttf");
-
                 var tagIcon = view.FindViewById<TextView>(Resource.Id.blog_post_row_tag_icon);
-                tagIcon.SetTypeface(font, TypefaceStyle.Normal);
+                tagIcon.SetTypeface(Fonts.FontAwesome, TypefaceStyle.Normal);
             }
 
             public TextView Title { get; private set; }

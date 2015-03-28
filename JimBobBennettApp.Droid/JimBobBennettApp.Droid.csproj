@@ -73,6 +73,7 @@
     <Compile Include="Adapters\DrawerMenuAdapter.cs" />
     <Compile Include="Controls\ExtendedScrollView.cs" />
     <Compile Include="Controls\ScrolledEventArgs.cs" />
+    <Compile Include="Fonts.cs" />
     <Compile Include="Fragments\AboutMeFragment.cs" />
     <Compile Include="Fragments\BlogPostsFragment.cs" />
     <Compile Include="Helpers\MyActionBarDrawerToggle.cs" />
