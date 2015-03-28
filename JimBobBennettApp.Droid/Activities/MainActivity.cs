@@ -95,7 +95,7 @@ namespace JimBobBennettApp.Droid.Activities
                     fragment = AboutMeFragment.NewInstance();
                     break;
                 case 1:
-                    fragment = Fragment2.NewInstance();
+                    fragment = BlogPostsFragment.NewInstance();
                     break;
             }
 

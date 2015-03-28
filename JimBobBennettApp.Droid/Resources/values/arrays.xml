@@ -4,7 +4,7 @@
   more icons from:  http://romannurik.github.io/AndroidAssetStudio/-->
   <string-array name="sections">
     <item>About Me</item>
-    <item>Fragment 2</item>
+    <item>Blog Posts</item>
   </string-array>
   <string-array name="sections_icons">
     <item>@drawable/ic_home_1</item>

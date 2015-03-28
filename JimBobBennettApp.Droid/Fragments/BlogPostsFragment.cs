@@ -1,10 +1,12 @@
+using System.Threading.Tasks;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Views;
+using JimBobBennettApp.Portable;
 
 namespace JimBobBennettApp.Droid.Fragments
 {
-    public class Fragment2 : Fragment
+    public class BlogPostsFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -13,17 +15,23 @@ namespace JimBobBennettApp.Droid.Fragments
             // Create your fragment here
         }
 
-        public static Fragment2 NewInstance()
+        public static BlogPostsFragment NewInstance()
         {
-            var frag2 = new Fragment2 { Arguments = new Bundle() };
-            return frag2;
+            return new BlogPostsFragment { Arguments = new Bundle() };
         }
 
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var ignored = base.OnCreateView(inflater, container, savedInstanceState);
-            return inflater.Inflate(Resource.Layout.fragment2, null);
+            var view = inflater.Inflate(Resource.Layout.blog_posts, null);
+
+            Task.Factory.StartNew(async () =>
+            {
+                var posts = await BlogPosts.Instance.GetAllBlogPostsAsync();
+            });
+
+            return view;
         }
     }
 }

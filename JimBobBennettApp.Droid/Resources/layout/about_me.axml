@@ -1,33 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
+        android:id="@+id/about_me_main_image_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@android:color/black">
         <ImageView
+            android:id="@+id/about_me_main_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/Jim"
             android:scaleType="fitStart"
-            android:adjustViewBounds="true" />
-        <TextView
+            android:adjustViewBounds="true"
+            android:alpha="1" />
+    </FrameLayout>
+    <JimBobBennettApp.Droid.Controls.ExtendedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/about_me_scroll_view">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Xamarin and WPF developer, blogger and technology geek"
-            android:textSize="24sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Passionate technologist with a huge range of experience ranging from C#/WPF in the finance industry, to cross platform mobile application development using Xamarin.  I have delivered projects ranging from my own mobile apps, to being both the architect and driving force behind a new real-time equity trading platform for a leading asian brokerage.  I have also created and contributed to a number of open source projects, been involved in the asian startup scene working in the mobile app space, blogged and been a guest on a podcast that has topped the iTunes Software How-To category."
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
-    </LinearLayout>
-</ScrollView>
+            android:id="@+id/about_me_text_layout">
+            <TextView
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Xamarin and WPF developer, blogger and technology geek"
+                android:textSize="24sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+            <TextView
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Passionate technologist with a huge range of experience ranging from C#/WPF in the finance industry, to cross platform mobile application development using Xamarin."
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+            <TextView
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="I have delivered projects ranging from my own mobile apps, to being both the architect and driving force behind a new real-time equity trading platform for a leading asian brokerage."
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+            <TextView
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="I have also created and contributed to a number of open source projects, been involved in the asian startup scene working in the mobile app space, blogged and been a guest on a podcast that has topped the iTunes Software How-To category."
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+    </JimBobBennettApp.Droid.Controls.ExtendedScrollView>
+</FrameLayout>
