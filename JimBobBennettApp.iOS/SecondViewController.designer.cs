@@ -11,8 +11,8 @@ using UIKit;
 
 namespace JimBobBennettApp.iOS
 {
-	[Register ("UITabView")]
-	partial class UITabView
+	[Register ("SecondViewController")]
+	partial class SecondViewController
 	{
 		void ReleaseDesignerOutlets ()
 		{

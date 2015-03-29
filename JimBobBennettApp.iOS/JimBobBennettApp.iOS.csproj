@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{5ECC4DD6-C0CB-4BD8-8828-25907D84D010}</ProjectGuid>
+    <ProjectGuid>{0EE4F7B3-9E1E-490B-B8EB-6C23B454F852}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>JimBobBennettApp.iOS</RootNamespace>
@@ -84,24 +84,29 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AboutMeViewController.cs" />
-    <Compile Include="AboutMeViewController.designer.cs">
-      <DependentUpon>AboutMeViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="UITabView.cs" />
-    <Compile Include="UITabView.designer.cs">
-      <DependentUpon>UITabView.cs</DependentUpon>
-    </Compile>
-    <InterfaceDefinition Include="AboutMeViewController_iPhone.xib" />
-    <InterfaceDefinition Include="AboutMeViewController_iPad.xib" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FirstViewController.cs" />
+    <Compile Include="FirstViewController.designer.cs">
+      <DependentUpon>FirstViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondViewController.cs" />
+    <Compile Include="SecondViewController.designer.cs">
+      <DependentUpon>SecondViewController.cs</DependentUpon>
+    </Compile>
     <InterfaceDefinition Include="MainStoryboard_iPad.storyboard" />
-    <InterfaceDefinition Include="MainStoryboard_iPhone.storyboard" />
+    <InterfaceDefinition Include="MainStoryboard_iPhone.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <BundleResource Include="Resources\first.png" />
+    <BundleResource Include="Resources\first@2x.png" />
+    <BundleResource Include="Resources\second.png" />
+    <BundleResource Include="Resources\second@2x.png" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +117,51 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
+    <BundleResource Include="Resources\Jim.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JimBobBennettApp.Portable\JimBobBennettApp.Portable.csproj">
+      <Project>{4FE8770F-FC9B-419F-B05E-F7DA7F870B47}</Project>
+      <Name>JimBobBennettApp.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-40.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-40@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-40@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-60@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-60@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-76@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-Small.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-Small@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-Small@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources/Media.xcassets/LaunchImages.launchimage/Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
