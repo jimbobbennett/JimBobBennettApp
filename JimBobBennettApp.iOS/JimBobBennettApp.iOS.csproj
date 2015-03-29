@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{6E0F59AD-FCC2-40D8-8301-24C94F357A85}</ProjectGuid>
+    <ProjectGuid>{5ECC4DD6-C0CB-4BD8-8828-25907D84D010}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>JimBobBennettApp.iOS</RootNamespace>
@@ -90,25 +90,21 @@
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="TaskPageController.cs" />
-    <InterfaceDefinition Include="AboutMeViewController_iPhone.storyboard">
-      <SubType>Designer</SubType>
-    </InterfaceDefinition>
-    <None Include="Info.plist" />
-    <Compile Include="MainViewController.cs" />
-    <Compile Include="MainViewController.designer.cs">
-      <DependentUpon>MainViewController.cs</DependentUpon>
+    <Compile Include="UITabView.cs" />
+    <Compile Include="UITabView.designer.cs">
+      <DependentUpon>UITabView.cs</DependentUpon>
     </Compile>
+    <InterfaceDefinition Include="AboutMeViewController_iPhone.xib" />
+    <InterfaceDefinition Include="AboutMeViewController_iPad.xib" />
+    <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <InterfaceDefinition Include="MainStoryboard_iPad.storyboard" />
+    <InterfaceDefinition Include="MainStoryboard_iPhone.storyboard" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FlyoutNavigation">
-      <HintPath>..\Components\flyoutnavigation-1.5.1\lib\ios-unified\FlyoutNavigation.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -116,52 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
-    <BundleResource Include="Resources\Icon.png" />
-    <BundleResource Include="Resources\Jim.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-40.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-40@2x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-40@3x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-60@2x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-60@3x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-76.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-76@2x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-Small.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-Small@2x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/AppIcons.appiconset/Icon-Small@3x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources/Media.xcassets/LaunchImages.launchimage/Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <XamarinComponentReference Include="flyoutnavigation">
-      <Visible>False</Visible>
-      <Version>1.5.1</Version>
-    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
