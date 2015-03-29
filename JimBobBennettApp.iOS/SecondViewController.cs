@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Drawing;
-using System.Collections.Generic;
-
 using Foundation;
 using UIKit;
 
 namespace JimBobBennettApp.iOS
 {
-    public partial class SecondViewController : UIViewController
+    public sealed partial class SecondViewController : UIViewController
     {
         public SecondViewController(IntPtr handle)
             : base(handle)
         {
-            this.Title = NSBundle.MainBundle.LocalizedString("Second", "Second");
-            this.TabBarItem.Image = UIImage.FromBundle("second");
+            Title = NSBundle.MainBundle.LocalizedString("Second", "Second");
+            TabBarItem.Image = UIImage.FromBundle("second");
         }
 
         public override void DidReceiveMemoryWarning()

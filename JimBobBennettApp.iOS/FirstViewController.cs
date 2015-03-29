@@ -6,15 +6,15 @@ using UIKit;
 
 namespace JimBobBennettApp.iOS
 {
-    public partial class FirstViewController : UIViewController
+    public sealed partial class FirstViewController : UIViewController
     {
         public FirstViewController(IntPtr handle)
             : base(handle)
         {
-            Title = NSBundle.MainBundle.LocalizedString("First", "First");
-            TabBarItem.Image = UIImage.FromBundle("first");
+            //Title = "About Me";
+            //TabBarItem.Image = UIImage.FromBundle("first");
             
-            //TabBarItem.SetTitleTextAttributes(new UITextAttributes{TextColor = UIColor.Black}, UIControlState.Highlighted );
+            TabBarItem.SetTitleTextAttributes(new UITextAttributes{TextColor = UIColor.Black}, UIControlState.Highlighted);
         }
 
         public override void DidReceiveMemoryWarning()
@@ -107,7 +107,7 @@ namespace JimBobBennettApp.iOS
         public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation)
         {
             // Return true for supported orientations
-            return true;
+            return false;
         }
     }
 }
