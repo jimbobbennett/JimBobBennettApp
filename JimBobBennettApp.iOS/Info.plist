@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>JimBobBennettApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>io.moomoo..JimBobBennettApp</string>
+	<string>io.moomoo.JimBobBennettApp</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -42,8 +42,6 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
-	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard_iPhone</string>
 	<key>CFBundleGetInfoString</key>
 	<string>fontawesome.ttf</string>
 </dict>
