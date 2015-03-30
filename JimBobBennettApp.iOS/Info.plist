@@ -44,5 +44,7 @@
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
+	<key>CFBundleGetInfoString</key>
+	<string>fontawesome.ttf</string>
 </dict>
 </plist>
