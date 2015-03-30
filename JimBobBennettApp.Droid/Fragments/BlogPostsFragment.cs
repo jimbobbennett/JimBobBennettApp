@@ -24,7 +24,15 @@ namespace JimBobBennettApp.Droid.Fragments
         {
             return new BlogPostsFragment { Arguments = new Bundle() };
         }
-        
+
+        public override async void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            _adapter = CreateAdapter();
+            await LoadBlogPosts();
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
@@ -41,16 +49,12 @@ namespace JimBobBennettApp.Droid.Fragments
 
             _swipeRefreshLayout.Refresh += async (s, e) => await LoadBlogPosts();
 
-            _adapter = CreateAdapter();
             _listView.Adapter = _adapter;
 
             _listView.ItemClick += (s, e) =>
             {
                 LoadUrl(_blogPosts[e.Position].Link);
             };
-
-            _swipeRefreshLayout.Refreshing = true;
-            Task.Factory.StartNew(async () => await LoadBlogPosts());
 
             return view;
         }
@@ -74,11 +78,7 @@ namespace JimBobBennettApp.Droid.Fragments
             _blogPosts.Clear();
             _blogPosts.AddRange(posts);
 
-            Activity.RunOnUiThread(() =>
-            {
-                _adapter.NotifyDataSetChanged();
-                _swipeRefreshLayout.Refreshing = false;
-            });
+            _adapter.NotifyDataSetChanged();
         }
     }
 }

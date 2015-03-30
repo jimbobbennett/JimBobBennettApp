@@ -41,11 +41,14 @@ namespace JimBobBennettApp.iOS
             ScrollView.Scrolled += (sender, args) =>
             {
                 var offSet = (float)Math.Max(0f, (ScrollView.ContentOffset.Y));
-                JimImageView.Frame = new CGRect(new CGPoint(0, 20 - (offSet/2.5f)), JimImageView.Frame.Size);
 
                 var alpha = ((float) JimImageView.Frame.Height - (offSet/2f))/JimImageView.Frame.Height;
-                alpha = (float) Math.Min(Math.Max(0, alpha), 1);
+                alpha = (float)Math.Min(Math.Max(0, alpha), 1);
+
+                JimImageView.Frame = new CGRect(new CGPoint(0, 20 - (offSet / 2.5f)), JimImageView.Frame.Size);
                 JimImageView.Alpha = alpha;
+
+                ImageBackground.Frame = JimImageView.Frame;
             };
 
             JimImageView.Frame = new CGRect(new CGPoint(0, 20), new CGSize(width, JimImageView.Image.Size.Height * scaleFactor));
@@ -68,6 +71,9 @@ namespace JimBobBennettApp.iOS
             SubTitle3.Frame = new CGRect(new CGPoint(0, SubTitle2.Frame.Bottom), new CGSize(width, subtitle3Size.Height));
 
             ScrollView.ContentSize = new CGSize(width, SubTitle3.Frame.Bottom + 20);
+
+            var tabBarController = (UITabBarController) ParentViewController;
+            tabBarController.TabBar.SelectedImageTintColor = UIColor.Black;
         }
 
         public override void ViewDidUnload()

@@ -14,8 +14,24 @@ namespace JimBobBennettApp.iOS
 	[Register ("SecondViewController")]
 	partial class SecondViewController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView BlogPostTableView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton VisitBlogButton { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (BlogPostTableView != null) {
+				BlogPostTableView.Dispose ();
+				BlogPostTableView = null;
+			}
+			if (VisitBlogButton != null) {
+				VisitBlogButton.Dispose ();
+				VisitBlogButton = null;
+			}
 		}
 	}
 }

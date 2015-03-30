@@ -1,55 +1,56 @@
 ﻿using System;
+using CoreGraphics;
 using Foundation;
+using JimBobBennettApp.Portable;
 using UIKit;
 
 namespace JimBobBennettApp.iOS
 {
     public sealed partial class SecondViewController : UIViewController
     {
+        private readonly BlogPostDataSource _dataSource = new BlogPostDataSource();
+        private readonly UIRefreshControl _refreshControl;
+
         public SecondViewController(IntPtr handle)
             : base(handle)
         {
-            Title = NSBundle.MainBundle.LocalizedString("Second", "Second");
             TabBarItem.Image = UIImage.FromBundle("second");
+
+            _refreshControl = new UIRefreshControl();
         }
 
-        public override void DidReceiveMemoryWarning()
-        {
-            // Releases the view if it doesn't have a superview.
-            base.DidReceiveMemoryWarning();
-
-            // Release any cached data, images, etc that aren't in use.
-        }
-
-        #region View lifecycle
-
-        public override void ViewDidLoad()
+        public override async void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            // Perform any additional setup after loading the view, typically from a nib.
+            var tabBarController = (UITabBarController)ParentViewController;
+            tabBarController.TabBar.SelectedImageTintColor = UIColor.Black;
+
+            var width = View.Frame.Width;
+            var height = View.Frame.Height;
+
+            VisitBlogButton.Frame = new CGRect(new CGPoint(0, height-99), new CGSize(width, 30));
+            VisitBlogButton.TouchUpInside += (sender, args) =>
+            {
+                UIApplication.SharedApplication.OpenUrl(new NSUrl("http://jimbobbennett.io"));
+            };
+
+            BlogPostTableView.Frame = new CGRect(new CGPoint(0, 20), new CGSize(width, VisitBlogButton.Frame.Top - 20));
+            BlogPostTableView.TableFooterView = new UIView();
+            BlogPostTableView.Add(_refreshControl);
+
+            _refreshControl.ValueChanged += RefreshControlOnValueChanged;
+
+            BlogPostTableView.Source = _dataSource;
+            await _dataSource.LoadBlogPostsAsync();
+            BlogPostTableView.ReloadData();
         }
 
-        public override void ViewWillAppear(bool animated)
+        private async void RefreshControlOnValueChanged(object sender, EventArgs eventArgs)
         {
-            base.ViewWillAppear(animated);
+            await BlogPosts.Instance.GetAllBlogPostsAsync();
+            BlogPostTableView.ReloadData();
+            _refreshControl.EndRefreshing();
         }
-
-        public override void ViewDidAppear(bool animated)
-        {
-            base.ViewDidAppear(animated);
-        }
-
-        public override void ViewWillDisappear(bool animated)
-        {
-            base.ViewWillDisappear(animated);
-        }
-
-        public override void ViewDidDisappear(bool animated)
-        {
-            base.ViewDidDisappear(animated);
-        }
-
-        #endregion
     }
 }
