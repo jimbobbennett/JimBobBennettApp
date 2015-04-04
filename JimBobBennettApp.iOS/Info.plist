@@ -50,5 +50,7 @@
 	<array>
 		<string>fontawesome.ttf</string>
 	</array>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>Show the current location</string>
 </dict>
 </plist>

@@ -6,12 +6,12 @@ using UIKit;
 
 namespace JimBobBennettApp.iOS
 {
-    public sealed partial class SecondViewController : UIViewController
+    public sealed partial class BlogPostsViewController : UIViewController
     {
         private readonly BlogPostDataSource _dataSource = new BlogPostDataSource();
         private readonly UIRefreshControl _refreshControl;
 
-        public SecondViewController(IntPtr handle)
+        public BlogPostsViewController(IntPtr handle)
             : base(handle)
         {
             TabBarItem.Image = UIImage.FromBundle("second");
@@ -51,6 +51,12 @@ namespace JimBobBennettApp.iOS
             await BlogPosts.Instance.GetAllBlogPostsAsync();
             BlogPostTableView.ReloadData();
             _refreshControl.EndRefreshing();
+        }
+
+        public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation)
+        {
+            // Return true for supported orientations
+            return false;
         }
     }
 }

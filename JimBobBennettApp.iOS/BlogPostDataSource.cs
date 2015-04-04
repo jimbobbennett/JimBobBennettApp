@@ -25,11 +25,10 @@ namespace JimBobBennettApp.iOS
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            var cell = tableView.DequeueReusableCell("blogpost");
-            cell = cell ?? new UITableViewCell(UITableViewCellStyle.Default, "blogpost");
+            var cell = tableView.DequeueReusableCell("BlogPostCell") as UIBlogPostTableViewCell;
+            cell = cell ?? new UIBlogPostTableViewCell();
 
-            var post = _posts[indexPath.Row];
-            cell.TextLabel.Text = post.Title;
+            cell.BlogPost = _posts[indexPath.Row];
 
             return cell;
         }
