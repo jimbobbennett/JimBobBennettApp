@@ -30,7 +30,7 @@ namespace JimBobBennettApp.Droid.Adapters
             public void UpdateFromItem(FeedItem item)
             {
                 Title.Text = item.Title;
-                Tags.Text = string.Join(", ", item.Categories);
+                Tags.Text = item.Categories;
             }
         }
 

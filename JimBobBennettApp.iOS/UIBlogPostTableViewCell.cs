@@ -24,7 +24,7 @@ namespace JimBobBennettApp.iOS
 	        {
 	            _blogPost = value;
 	            Title.Text = _blogPost.Title;
-	            Categories.Text = string.Join(", ", _blogPost.Categories);
+	            Categories.Text = _blogPost.Categories;
                 TagIcon.Font = UIFont.FromName("fontawesome", 14f);
 	            TagIcon.Text = '\uf040'.ToString();
 	        }

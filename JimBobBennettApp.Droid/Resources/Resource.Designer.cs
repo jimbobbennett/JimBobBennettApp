@@ -26,6 +26,8 @@ namespace JimBobBennettApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::JimBobBennettApp.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::JimBobBennettApp.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -2043,6 +2045,12 @@ namespace JimBobBennettApp.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f06003a
+			public const int ApplicationName = 2131099706;
+			
+			// aapt resource value: 0x7f060039
+			public const int Hello = 2131099705;
+			
 			// aapt resource value: 0x7f060006
 			public const int abc_action_bar_home_description = 2131099654;
 			
@@ -2094,8 +2102,8 @@ namespace JimBobBennettApp.Droid
 			// aapt resource value: 0x7f060018
 			public const int accept = 2131099672;
 			
-			// aapt resource value: 0x7f060039
-			public const int app_name = 2131099705;
+			// aapt resource value: 0x7f06003b
+			public const int app_name = 2131099707;
 			
 			// aapt resource value: 0x7f06001f
 			public const int common_android_wear_notification_needs_update_text = 2131099679;
@@ -2190,38 +2198,38 @@ namespace JimBobBennettApp.Droid
 			// aapt resource value: 0x7f060019
 			public const int decline = 2131099673;
 			
-			// aapt resource value: 0x7f06003b
-			public const int drawer_close = 2131099707;
-			
-			// aapt resource value: 0x7f06003a
-			public const int drawer_open = 2131099706;
-			
-			// aapt resource value: 0x7f060043
-			public const int icon_blog = 2131099715;
-			
-			// aapt resource value: 0x7f060040
-			public const int icon_github = 2131099712;
-			
-			// aapt resource value: 0x7f060041
-			public const int icon_google_plus = 2131099713;
-			
-			// aapt resource value: 0x7f060042
-			public const int icon_home = 2131099714;
-			
-			// aapt resource value: 0x7f06003f
-			public const int icon_linkedin = 2131099711;
-			
-			// aapt resource value: 0x7f060044
-			public const int icon_map_marker = 2131099716;
-			
 			// aapt resource value: 0x7f06003d
-			public const int icon_tags = 2131099709;
-			
-			// aapt resource value: 0x7f06003e
-			public const int icon_twitter = 2131099710;
+			public const int drawer_close = 2131099709;
 			
 			// aapt resource value: 0x7f06003c
-			public const int menu_refresh = 2131099708;
+			public const int drawer_open = 2131099708;
+			
+			// aapt resource value: 0x7f060045
+			public const int icon_blog = 2131099717;
+			
+			// aapt resource value: 0x7f060042
+			public const int icon_github = 2131099714;
+			
+			// aapt resource value: 0x7f060043
+			public const int icon_google_plus = 2131099715;
+			
+			// aapt resource value: 0x7f060044
+			public const int icon_home = 2131099716;
+			
+			// aapt resource value: 0x7f060041
+			public const int icon_linkedin = 2131099713;
+			
+			// aapt resource value: 0x7f060046
+			public const int icon_map_marker = 2131099718;
+			
+			// aapt resource value: 0x7f06003f
+			public const int icon_tags = 2131099711;
+			
+			// aapt resource value: 0x7f060040
+			public const int icon_twitter = 2131099712;
+			
+			// aapt resource value: 0x7f06003e
+			public const int menu_refresh = 2131099710;
 			
 			// aapt resource value: 0x7f060000
 			public const int mr_media_route_button_content_description = 2131099648;

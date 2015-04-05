@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+using System.IO;
 using Foundation;
+using JimBobBennettApp.Portable;
+using SQLite.Net.Platform.XamarinIOS;
 using UIKit;
 
 namespace JimBobBennettApp.iOS
@@ -30,7 +30,29 @@ namespace JimBobBennettApp.iOS
         //
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
+            var docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var libFolder = Path.Combine(docFolder, "..", "Library");
+
+            if (!Directory.Exists(libFolder))
+            {
+                Directory.CreateDirectory(libFolder);
+            }
+
+            var dbPath = Path.Combine(libFolder, "blogposts.db3");
+
+            CopyDatabaseIfNotExists(dbPath);
+
+            BlogPosts.CreateBlogPosts(dbPath, new SQLitePlatformIOS());
+
             return true;
+        }
+
+        private static void CopyDatabaseIfNotExists(string dbPath)
+        {
+            if (File.Exists(dbPath)) return;
+
+            var existingDb = NSBundle.MainBundle.PathForResource("blogposts", "db3");
+            File.Copy(existingDb, dbPath);
         }
 
         // This method is invoked when the application is about to move from active to inactive state.

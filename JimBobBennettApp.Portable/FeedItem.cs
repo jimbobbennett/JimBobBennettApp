@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
+using SQLite.Net.Attributes;
 
 namespace JimBobBennettApp.Portable
 {
+    [Table("BlogPosts")]
     public class FeedItem
     {
-        public string Title { get; set; }
+        [PrimaryKey]
+        public int Id { get; set; }
+
         public string Link { get; set; }
+        public string Title { get; set; }
         public DateTime PubDate { get; set; }
-        public IEnumerable<string> Categories { get; set; }
-        public string Description { get; set; }
+        public string Categories { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace JimBobBennettApp.Portable
 {
     public class FeedService
     {
-        public async Task<List<FeedItem>> GetFeedItems(string url)
+        public static async Task<List<FeedItem>> GetFeedItemsAsync(string url)
         {
             var feedItemsList = new List<FeedItem>();
 
@@ -21,18 +21,13 @@ namespace JimBobBennettApp.Portable
                 var xDoc = XDocument.Load(stream);
                 var items = xDoc.Descendants("item").ToList();
 
-                foreach (var element in items)
+                feedItemsList.AddRange(items.Select(element => new FeedItem
                 {
-                    var item = new FeedItem();
-
-                    item.Link = element.Descendants("link").Single().Value;
-                    item.Description = element.Descendants("description").Single().Value;
-                    item.Categories = element.Descendants("category").Select(c => c.Value).ToList();
-                    item.PubDate = DateTime.Parse(element.Descendants("pubDate").Single().Value);
-                    item.Title = element.Descendants("title").Single().Value;
-
-                    feedItemsList.Add(item);
-                }
+                    Link = element.Descendants("link").Single().Value,
+                    Categories = string.Join(", ", element.Descendants("category").Select(c => c.Value)),
+                    PubDate = DateTime.Parse(element.Descendants("pubDate").Single().Value),
+                    Title = element.Descendants("title").Single().Value
+                }));
             }
             catch
             {

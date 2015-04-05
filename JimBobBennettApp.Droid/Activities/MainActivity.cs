@@ -1,3 +1,4 @@
+using System.IO;
 using Android.App;
 using Android.Content.PM;
 using Android.Content.Res;
@@ -9,6 +10,8 @@ using Android.Widget;
 using JimBobBennettApp.Droid.Adapters;
 using JimBobBennettApp.Droid.Fragments;
 using JimBobBennettApp.Droid.Helpers;
+using JimBobBennettApp.Portable;
+using SQLite.Net.Platform.XamarinAndroid;
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace JimBobBennettApp.Droid.Activities
@@ -33,6 +36,12 @@ namespace JimBobBennettApp.Droid.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var dbPath = Path.Combine(path, "blogposts.db3");
+
+            CopyDatabaseIfNotExists(dbPath);
+            BlogPosts.CreateBlogPosts(dbPath, new SQLitePlatformAndroid());
 
             _title = _drawerTitle = Title;
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
@@ -76,6 +85,25 @@ namespace JimBobBennettApp.Droid.Activities
             if (savedInstanceState == null)
             {
                 ListItemClicked(0);
+            }
+        }
+
+        private static void CopyDatabaseIfNotExists(string dbPath)
+        {
+            if (!File.Exists(dbPath))
+            {
+                using (var br = new BinaryReader(Application.Context.Assets.Open("blogposts.db3")))
+                {
+                    using (var bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
+                    {
+                        byte[] buffer = new byte[2048];
+                        int length = 0;
+                        while ((length = br.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            bw.Write(buffer, 0, length);
+                        }
+                    }
+                }
             }
         }
 

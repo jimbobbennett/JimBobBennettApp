@@ -12,7 +12,7 @@ namespace JimBobBennettApp.iOS
     public partial class LocationsLivedViewController : UIViewController
     {
         private readonly CLLocationManager _locationManager;
-        private Dictionary<IMKAnnotation, LocationInformation> _annotations = new Dictionary<IMKAnnotation, LocationInformation>(); 
+        private readonly Dictionary<IMKAnnotation, LocationInformation> _annotations = new Dictionary<IMKAnnotation, LocationInformation>(); 
 
         public LocationsLivedViewController(IntPtr handle)
             : base(handle)
